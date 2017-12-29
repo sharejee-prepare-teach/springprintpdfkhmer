@@ -29,13 +29,13 @@ public class EmployeeDAOImpl implements EmployeeDAO
         String sql = "insert into Employee values(?,?,?,?)";
         System.out.println("dao called");
         jdbcTemplate.update(sql, new Object[]
-        { employee.getId(), employee.getAge(), employee.getDept(), employee.getName() });
+                {employee.getId(), employee.getName(), employee.getDept(), employee.getAge()});
     }
 
     // Getting a particular Employee
     public Employee getEmployeeById(int id)
     {
-        String sql = "select * from Employee where id=?";
+        String sql = "select *from Employee where id=?";
         Employee employee = (Employee) jdbcTemplate.queryForObject(sql, new Object[]
         { id }, new RowMapper<Employee>()
         {
